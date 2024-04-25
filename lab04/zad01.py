@@ -11,5 +11,5 @@ def forwardPass(wiek, waga, wzrost):
     output = -0.81546 * hidden1_po_aktywacji + 1.03775 * hidden2_po_aktywacji - 0.2368
     return output
 
-print(forwardPass(23, 75, 176))
-print(forwardPass(25, 67, 180))
+print("forwardPass(23, 75, 176): ", forwardPass(23, 75, 176))
+print("forwardPass(25, 67, 180)", forwardPass(25, 67, 180))

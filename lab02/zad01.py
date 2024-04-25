@@ -13,13 +13,15 @@ print(f"Nieuzupełnione dane:\n{nullsAmount}")
 for column in df.loc[:, df.columns != 'variety']: # [wiersze, kolumny]
     df.loc[(df[column] > 15) | (df[column] < 0) , column] = df[column].median()
 
-print(df.values)
+# print(df.values)
 
 # c)
-# print(df.loc[~df['variety'].isin(["Setosa", "Virginica", "Versicolor"]), 'variety'])
+print("przed:")
+print(df.loc[~df['variety'].isin(["Setosa", "Virginica", "Versicolor"]), 'variety'])
 
 df.loc[df['variety'] == "setosa", 'variety'] = "Setosa"
 df.loc[df['variety'] == "virginica", 'variety'] = "Virginica"
 df.loc[df['variety'] == "Versicolour", 'variety'] = "Versicolor"
 
-# print(df.loc[~df['variety'].isin(["Setosa", "Virginica", "Versicolor"]), 'variety'])
+print("po:")
+print(df.loc[~df['variety'].isin(["Setosa", "Virginica", "Versicolor"]), 'variety'])

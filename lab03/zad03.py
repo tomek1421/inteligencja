@@ -12,6 +12,7 @@ train_classes = train_set[:, 4]
 test_inputs = test_set[:, 0:4]
 test_classes = test_set[:, 4]
 
+#Ewaluacja
 scaler = StandardScaler()
 train_inputs = scaler.fit_transform(train_inputs)
 test_inputs = scaler.fit_transform(test_inputs)
@@ -19,16 +20,20 @@ test_inputs = scaler.fit_transform(test_inputs)
 for n in [3, 5, 11]:
     clf = KNeighborsClassifier(n_neighbors=n)
     clf.fit(train_inputs, train_classes)
+    print("")
     print(f"{n} neighbours:")
-    print(clf.score(test_inputs, test_classes))
+    print("Accuracy:", clf.score(test_inputs, test_classes))
     predictions = clf.predict(test_inputs)
+    print("Confusion matrix:")
     print(confusion_matrix(test_classes, predictions))
 
 gnb = GaussianNB()
 gnb.fit(train_inputs, train_classes)
+print("")
 print("gaussian naive bayes:")
-print(gnb.score(test_inputs, test_classes))
+print("Accuracy:", gnb.score(test_inputs, test_classes))
 predictions = gnb.predict(test_inputs)
+print("Confusion matrix:")
 print(confusion_matrix(test_classes, predictions))
 
-#najlepiej wypadł klasyfikator 11NN, reszta wypadła tak samo 
+#Najlepiej wypadł klasyfikator 11NN
