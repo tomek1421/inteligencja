@@ -9,9 +9,9 @@ print(train_set[train_set[:, 4].argsort()])
 
 
 def classify_iris(sl, sw, pl, pw):
-    if sl < 6 and pw < 1:
+    if sl < 7 and pw < 1:
         return("Setosa")
-    elif pl > 4.8 and pw > 1:
+    elif pl > 5 and pw > 1:
         return("Virginica")
     else:
         return("Versicolor")
